@@ -1,0 +1,4 @@
+displayName = Un nerfs calamity soaring insignia
+author = Kokopai
+version = 0.1
+modReferences = CalamityMod
