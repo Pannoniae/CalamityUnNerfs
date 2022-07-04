@@ -8,14 +8,44 @@ namespace CalamityFly;
 public class CalamityFly : Mod
 {
 	public static CalamityFly Instance;
+	//internal static UnNerfsConfig config = ModContent.GetInstance<UnNerfsConfig>();
 
 	public override void Load()
 	{
 		Instance = this;
-		Player.WingMovement += Player_WingMovement;
+		if (true )//config.SoaringInsigniaFlight)
+		{
+			Player.WingMovement += UnNerfSoarinfInfiniteWings;
+			Player.Update += UnNerfSoaringInfiniteRocket;
+		}
 	}
 
-	private void Player_WingMovement(ILContext il)
+	private void UnNerfSoaringInfiniteRocket(ILContext il)
+	{
+		var cursor = new ILCursor(il);
+		if (!cursor.TryGotoNext(MoveType.After,i => ILPatternMatchingExt.MatchLdfld<Terraria.Player>(i, "empressBrooch")))
+		{
+			Logger.Warn("unable to edit Player_Update");
+			return;
+		}
+		if (!cursor.TryGotoNext(MoveType.After, i => ILPatternMatchingExt.MatchLdfld<Terraria.Player>(i, "empressBrooch")))
+		{
+			Logger.Warn("unable to edit Player_Update");
+			return;
+		}
+		cursor.Index++;
+		if (cursor.Prev.OpCode == OpCodes.Ldc_I4_0 && cursor.Next.OpCode == OpCodes.And)
+		{
+			cursor.Index--;
+			cursor.RemoveRange(2);
+		}
+		else
+		{
+			Logger.Warn("unable to edit Player_Update");
+		}
+	}
+
+	private void UnNerfSoarinfInfiniteWings(ILContext il)
 	{
 		var cursor = new ILCursor(il);
 		if (!cursor.TryGotoNext(MoveType.After, i => ILPatternMatchingExt.MatchLdfld<Terraria.Player>(i, "empressBrooch")))
@@ -37,7 +67,11 @@ public class CalamityFly : Mod
 
 	public override void Unload()
 	{
-		Player.WingMovement -= Player_WingMovement;
+		if (true)//config.SoaringInsigniaFlight)
+		{
+			Player.WingMovement -= UnNerfSoarinfInfiniteWings;
+			Player.Update -= UnNerfSoaringInfiniteRocket;
+		}
 		Instance = null;
 	}
 }

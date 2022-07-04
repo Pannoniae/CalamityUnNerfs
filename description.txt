@@ -1,1 +1,6 @@
 It simply returns infinite flight to the soaring insignia that calimity removes.
+
+Changelog:
+
+v0.2
+- Removed the nerf also to the rocket-style boots, since it was only being removed from the wings
