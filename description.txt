@@ -1,6 +1,30 @@
-It simply returns infinite flight to the soaring insignia that calimity removes.
+A mod that simply removes some of the nerfs Calamity does to the vanilla game.
+
+Available un-nerfs (each can by disabled or enabled in config):
+
+- Soaring Insignia Flight: Grants infinite flight and rocket boots again (default:enabled)
+- Soaring Insignia Movement: Grants orginal jump heigth and acceleration (default:disabled)
+- Magiluminescence: Grants orginal acceleration (default:enabled)
+- Zenith Vanilla Craft: Adds vanilla recipe for zenith (default:disabled)
+- Rod Of Discord: Allow the rod of discord to be used while chaos state is active (default:disabled)
+- Defense Damage: Disable defense damage (default:disabled)
+
+Any change in configuration requires reload
+
+If you have any requests let me know!
+
+
 
 Changelog:
+
+v0.5
+- Added ability to disable defense damage mechanic
+
+v0.4
+-  Add rod of discord un-nerfs
+
+v0.3
+- Add more un-nerfs and possibility to disable/enable in configuration
 
 v0.2
 - Removed the nerf also to the rocket-style boots, since it was only being removed from the wings

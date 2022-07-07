@@ -2,37 +2,48 @@
 using Terraria.ModLoader.Config;
 
 namespace CalamityFly.Config;
-/*
-[Label("Un Nerfs Config")]
+
+[Label("Un-Nerfs Config")]
 public class UnNerfsConfig : ModConfig
 {
 	public override ConfigScope Mode => ConfigScope.ServerSide;
 
-	[Header("Un Nerfs")]
-	[Label("Soaring Insignia Infinite Flight")]
+	[Header("Un-Nerfs")]
+	[Label("Soaring Insignia Flight")]
 	[ReloadRequired]
 	[DefaultValue(true)]
 	[Tooltip("true to remove the infinite flight calamity nerf to the soaring insignia, false to keep the nerf")]
 	public bool SoaringInsigniaFlight;
 
-	[Label("Soaring Insignia Acceleration")]
+	[Label("Soaring Insignia Movement")]
 	[ReloadRequired]
 	[DefaultValue(false)]
-	[Tooltip("True to remove the acceleration calamity nerf to the soaring insignia, false to keep the nerf")]
-	public bool SoaringInsigniaAcceleration;
+	[Tooltip("True to remove the movement calamity nerf to the soaring insignia, false to keep the nerf")]
+	public bool SoaringInsigniaMovement;
 
 	[Label("Magiluminescence Stats")]
 	[ReloadRequired]
-	[DefaultValue(false)]
+	[DefaultValue(true)]
 	[Tooltip("True to remove the stats calamity nerf to the magiluminescence, false to keep the nerf")]
 	public bool Magiluminescence;
 
-	[Header("Crafts")]
-	[Label("Add Zenith Vanilla Craft")]
+	[Label("Rod Of Discord")]
 	[ReloadRequired]
-	[DefaultValue(true)]
-	[Tooltip("Set to true to add an alternate vanilla craft to Zenith but without copper sword :(, the calamity craft will stay, only not use it")]
+	[DefaultValue(false)]
+	[Tooltip("True to allow the rod of discord to be used while chaos state is active, also use vanilla bebuff duration")]
+	public bool RodOfDiscord;
+
+	[Label("Defense Damage")]
+	[ReloadRequired]
+	[DefaultValue(false)]
+	[Tooltip("True to remove defense damage from calamity")]
+	public bool DefenseDamage;
+
+	[Header("Crafts")]
+	[Label("Zenith Vanilla Craft")]
+	[ReloadRequired]
+	[DefaultValue(false)]
+	[Tooltip("Set to true to add an alternate vanilla craft to Zenith but without auric bar, the calamity craft will stay, only not use it")]
 	public bool VanillaZenithCraft;
 
 }
-*/
