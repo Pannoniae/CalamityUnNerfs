@@ -1,11 +1,10 @@
 ﻿using MonoMod.RuntimeDetour.HookGen;
-using System.ComponentModel;
 using System.Reflection;
 using OrigCalPlayer = CalamityMod.CalPlayer.CalamityPlayer;
 
-namespace On.CalamityMod.CalPlayer;
+namespace CalamityFly.On;
 
-public static class CalamityPlayer
+public static class OnCalPlayer
 {
 	public delegate void hook_DealDefenseDamage(orig_DealDefenseDamage orig, OrigCalPlayer self, int damage);
 
@@ -29,5 +28,8 @@ public static class CalamityPlayer
 		}
 	}
 
+	public delegate void hook_ModifyHitNPCWithProj(orig_ModifyHitNPCWithProj orig, OrigCalPlayer self, Terraria.Projectile proj, Terraria.NPC target, ref int damage, ref float knockback, ref bool crit, ref int hitDirection);
+
+	public delegate void orig_ModifyHitNPCWithProj(OrigCalPlayer self, Terraria.Projectile proj, Terraria.NPC target, ref int damage, ref float knockback, ref bool crit, ref int hitDirection);
 
 }

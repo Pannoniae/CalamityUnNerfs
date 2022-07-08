@@ -39,6 +39,23 @@ public class UnNerfsConfig : ModConfig
 	[Tooltip("True to remove defense damage from calamity")]
 	public bool DefenseDamage;
 
+	[Label("Summon Damage")]
+	[ReloadRequired]
+	[DefaultValue(true)]
+	[Tooltip("True to remove damage reduction to minions while holding a weapon of another class")]
+	public bool SummonDamage;
+
+	[Label("Magic Mirror")]
+	[ReloadRequired]
+	[DefaultValue(true)]
+	[Tooltip("True to allow use of magic mirror/recall potion while fighting a boss")]
+	public bool MagicMirror;
+
+	[ReloadRequired]
+	[DefaultValue(true)]
+	[Tooltip("True to allow use of teleporters while fighting a boss")]
+	public bool Teleporters;
+
 	[Header("Crafts")]
 	[Label("Zenith Vanilla Craft")]
 	[ReloadRequired]

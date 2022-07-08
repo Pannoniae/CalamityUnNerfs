@@ -1,6 +1,6 @@
 displayName = UnNerfs Calamity
 author = Kokopai
-version = 0.5
+version = 0.6.1
 modReferences = CalamityMod
 hideCode = true
 hideResources = true

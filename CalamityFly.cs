@@ -1,8 +1,14 @@
 using CalamityFly.Config;
+using CalamityFly.IL;
+using CalamityFly.On;
+using CalamityMod;
+using CalamityMod.CalPlayer;
+using CalamityMod.ILEditing;
 using Mono.Cecil.Cil;
 using MonoMod.Cil;
-using On.CalamityMod.CalPlayer;
+using MonoMod.RuntimeDetour.HookGen;
 using System;
+using System.Reflection;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -32,21 +38,77 @@ public class CalamityFly : Mod
 		{
 			Player.Update += UnNerfMagiluminescence;
 		}
-		if(config.RodOfDiscord)
+		if(config.RodOfDiscord || config.MagicMirror)
 		{
-			Player.ItemCheck_CheckCanUse += UnNerfRodOfDiscord;
+			Player.ItemCheck_CheckCanUse += UnNerfUsableItems;
 		}
 		if(config.DefenseDamage)
 		{
-			CalamityPlayer.DealDefenseDamage += CalamityPlayer_DealDefenseDamage;
+			OnCalPlayer.DealDefenseDamage += CalamityPlayer_DealDefenseDamage;
+		}
+		if(config.SummonDamage)
+		{
+			IlCalPlayer.ModifyHitNPCWithProj += IlCalPlayer_ModifyHitNPCWithProj;
+		}
+		if(config.Teleporters)
+		{
+			var origT = typeof(Wiring);
+			var origM = origT.GetMethod("Teleport", BindingFlags.Static | BindingFlags.NonPublic);
+			var modT = typeof(ILChanges);
+			var modM = modT.GetMethod("DisableTeleporters", BindingFlags.Static | BindingFlags.NonPublic);
+			Delegate del = modM.CreateDelegate(typeof(global::On.Terraria.Wiring.hook_Teleport));
+			HookEndpointManager.Remove(origM, del);
 		}
 	}
 
-	private void CalamityPlayer_DealDefenseDamage(CalamityPlayer.orig_DealDefenseDamage orig, CalamityMod.CalPlayer.CalamityPlayer self, int damage)
+	private void IlCalPlayer_ModifyHitNPCWithProj(ILContext il)
+	{
+		var cursor = new ILCursor(il);
+
+		// rogue max stealh fix
+		var rogueType = typeof(RogueDamageClass);
+		var ProjType = typeof(Projectile);
+		var MethodBase = ProjType.GetMethod("CountsAsClass", 1, Type.EmptyTypes);
+		MethodBase = MethodBase.MakeGenericMethod(rogueType);
+		while(cursor.TryGotoNext(MoveType.Before, i=>i.MatchCallvirt(MethodBase)))
+		{
+			cursor.Remove();
+			cursor.EmitDelegate(CountAsRogueClass);
+		}
+
+		// summoner damage
+
+		cursor.Index = 0;
+		
+		if (!cursor.TryGotoNext(MoveType.Before,
+			i => i.MatchStloc(7)
+			))
+		{
+			Logger.Warn("unable to edit Player_ModifyHitNPCWithProj (error:15)");
+			return;
+		}
+		if (cursor.Prev.OpCode != OpCodes.Ldc_R8)
+		{
+			Logger.Warn("unable to edit Player_ModifyHitNPCWithProj (error:16)");
+			return;
+		}
+		cursor.Prev.Operand = 1d;
+		cursor.Index-=2;
+		if (cursor.Prev.OpCode != OpCodes.Ldc_R8)
+		{
+			Logger.Warn("unable to edit Player_ModifyHitNPCWithProj (error:17)");
+			return;
+		}
+		cursor.Prev.Operand = 1d;
+	}
+
+	private static bool CountAsRogueClass(Projectile p) => p.CountsAsClass<RogueDamageClass>();
+
+	private void CalamityPlayer_DealDefenseDamage(OnCalPlayer.orig_DealDefenseDamage orig, CalamityPlayer self, int damage)
 	{
 	}
 
-	private void UnNerfRodOfDiscord(ILContext il)
+	private void UnNerfUsableItems(ILContext il)
 	{
 		var cursor = new ILCursor(il)
 		{
@@ -54,7 +116,14 @@ public class CalamityFly : Mod
 		};
 		var label = cursor.DefineLabel();
 		cursor.Emit(OpCodes.Ldarg_1);
-		cursor.EmitDelegate<Func<Item, bool>>(i => i.type == ItemID.RodofDiscord);
+		cursor.EmitDelegate<Func<Item, bool>>(i =>
+		{
+			if(config.RodOfDiscord && i.type == ItemID.RodofDiscord)
+				return true;
+			if(config.MagicMirror)
+				return i.type is ItemID.MagicMirror or ItemID.IceMirror or ItemID.CellPhone or ItemID.RecallPotion;
+			return false;
+		});
 		cursor.Emit(OpCodes.Brfalse_S, label);
 		cursor.Emit(OpCodes.Ldc_I4_1);
 		cursor.Emit(OpCodes.Ret);
@@ -193,9 +262,9 @@ public class CalamityFly : Mod
 		}
 	}
 #if DEBUG
-	private void LogCursor(ILCursor cursor, int limit = int.MaxValue)
+	private void LogCursor(ILCursor cursor, int limit = int.MaxValue, bool resetIndex = true)
 	{
-		cursor.Index = 0;
+		if(resetIndex) cursor.Index = 0;
 		int c = 0;
 		do
 		{
@@ -206,13 +275,17 @@ public class CalamityFly : Mod
 #endif
 	public override void Unload()
 	{
+		if (config.SummonDamage)
+		{
+			IlCalPlayer.ModifyHitNPCWithProj -= IlCalPlayer_ModifyHitNPCWithProj;
+		} 
 		if (config.DefenseDamage)
 		{
-			CalamityPlayer.DealDefenseDamage -= CalamityPlayer_DealDefenseDamage;
+			OnCalPlayer.DealDefenseDamage -= CalamityPlayer_DealDefenseDamage;
 		}
-		if (config.RodOfDiscord)
+		if (config.RodOfDiscord || config.MagicMirror)
 		{
-			Player.ItemCheck_CheckCanUse += UnNerfRodOfDiscord;
+			Player.ItemCheck_CheckCanUse -= UnNerfUsableItems;
 		}
 		if (config.Magiluminescence)
 		{
