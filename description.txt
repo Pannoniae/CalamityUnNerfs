@@ -2,16 +2,29 @@ A mod that simply removes some of the nerfs Calamity does to the vanilla game.
 
 Available un-nerfs (each can by disabled or enabled in config):
 
+Un-Nerfs
 - Soaring Insignia Flight: Grants infinite flight and rocket boots again (default:enabled)
 - Soaring Insignia Movement: Grants orginal jump heigth and acceleration (default:disabled)
-- Magiluminescence: Grants orginal acceleration (default:enabled)
-- Zenith Vanilla Craft: Adds vanilla recipe for zenith (default:disabled)
+- Magiluminescence: Grants original acceleration (default:enabled)
 - Rod Of Discord: Allow the rod of discord to be used while chaos state is active (default:disabled)
-- Defense Damage: Disable defense damage (default:disabled)
-- Summon Damage: Disable nerf your summon damage while holding another class weapon (default:enabled)
 - Magic Mirror: Allow use of magic mirror/recall potion while fighting a boss (default:enabled)
 - Teleporters: Allow use of teleporters while fighting a boss (default:disabled)
+- Yoyo Bag And Glove: Remove damage nerf to yoyos (default:enabled)
+
+Damage/Defense/Endurance Un-Nerfs
+- Defense Damage: Disable defense damage (default:disabled)
+- Summon Damage: Disable nerf your summon damage while holding another class weapon (default:disabled)
+- Damage Reduction Cap: Returns the vanilla damage reduction, with no limitations (default:disabled)
+- Worm Scarf: Grants vanilla 17% DR (default:disabled)
+- Endurance Potion: Grants vanilla 10% DR (default:disabled)
+- Frozen Turtle Shell: Grants vanilla 25% (default:disabled)
+
+Crafts
+- Zenith Vanilla Craft: Adds vanilla recipe for zenith (default:disabled)
+
 
 Any change in configuration requires reload
 
 If you have any requests let me know!
+
+NOTE: The tooltips will continue to show the calamity information but the values in the background are the un-nerfed ones, I'm just too lazy to modify each tooltip

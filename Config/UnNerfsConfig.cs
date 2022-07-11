@@ -33,18 +33,6 @@ public class UnNerfsConfig : ModConfig
 	[Tooltip("True to allow the rod of discord to be used while chaos state is active, also use vanilla bebuff duration")]
 	public bool RodOfDiscord;
 
-	[Label("Defense Damage")]
-	[ReloadRequired]
-	[DefaultValue(false)]
-	[Tooltip("True to remove defense damage from calamity")]
-	public bool DefenseDamage;
-
-	[Label("Summon Damage")]
-	[ReloadRequired]
-	[DefaultValue(true)]
-	[Tooltip("True to remove damage reduction to minions while holding a weapon of another class")]
-	public bool SummonDamage;
-
 	[Label("Magic Mirror")]
 	[ReloadRequired]
 	[DefaultValue(true)]
@@ -56,11 +44,53 @@ public class UnNerfsConfig : ModConfig
 	[Tooltip("True to allow use of teleporters while fighting a boss")]
 	public bool Teleporters;
 
+	[Label("Yoyo Bag And Glove")]
+	[ReloadRequired]
+	[DefaultValue(true)]
+	[Tooltip("True to remove damage reduction of Yoyo Bag and Yoyo Glove")]
+	public bool YoyoBag;
+
+	[Header("Damage/Defense/Endurance Un-Nerfs")]
+	[Label("Defense Damage")]
+	[ReloadRequired]
+	[DefaultValue(false)]
+	[Tooltip("True to remove defense damage from calamity")]
+	public bool DefenseDamage;
+
+	[Label("Summon Damage")]
+	[ReloadRequired]
+	[DefaultValue(false)]
+	[Tooltip("True to remove damage reduction to minions while holding a weapon of another class")]
+	public bool SummonDamage;
+
+	[Label("Damage Reduction Cap")]
+	[ReloadRequired]
+	[DefaultValue(false)]
+	[Tooltip("True to remove damage reduction cap of calamity")]
+	public bool DamageReductionCap;
+
+	[Label("Worm Scarf")]
+	[ReloadRequired]
+	[DefaultValue(false)]
+	[Tooltip("True to make the Worm Scarf grants 17% damage reduction again")]
+	public bool WormScarf;
+
+	[Label("Endurance Potion")]
+	[ReloadRequired]
+	[DefaultValue(false)]
+	[Tooltip("True to make the Endurance Potion grants 10% damage reduction again")]
+	public bool EndurancePotion;
+
+	[Label("Frozen Turtle Shell")]
+	[ReloadRequired]
+	[DefaultValue(false)]
+	[Tooltip("True to make the Frozen Turtle Shell grants 25% damage reduction again")]
+	public bool FrozenTurtleShell;
+
 	[Header("Crafts")]
 	[Label("Zenith Vanilla Craft")]
 	[ReloadRequired]
 	[DefaultValue(false)]
 	[Tooltip("Set to true to add an alternate vanilla craft to Zenith but without auric bar, the calamity craft will stay, only not use it")]
 	public bool VanillaZenithCraft;
-
 }

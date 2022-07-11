@@ -1,5 +1,5 @@
 ﻿[ ] cambios al dodge
-[ ] yoyo bag
+[x] yoyo bag
 [x] daño de invocación
 [ ] Halibut Cannon
 [ ] brain of confusion 
