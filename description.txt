@@ -28,3 +28,5 @@ Any change in configuration requires reload
 If you have any requests let me know!
 
 NOTE: The tooltips will continue to show the calamity information but the values in the background are the un-nerfed ones, I'm just too lazy to modify each tooltip
+
+Enter this [url=https://discord.gg/7wY4pFwXhP]Discord[/url] to report problems with the mod and make suggestions

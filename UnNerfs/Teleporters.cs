@@ -17,8 +17,15 @@ internal class Teleporters : BaseUnNerf
 		var origM = origT.GetMethod("Teleport", BindingFlags.Static | BindingFlags.NonPublic);
 		var modT = typeof(ILChanges);
 		var modM = modT.GetMethod("DisableTeleporters", BindingFlags.Static | BindingFlags.NonPublic);
-		Delegate del = modM.CreateDelegate(typeof(global::On.Terraria.Wiring.hook_Teleport));
-		HookEndpointManager.Remove(origM, del);
+		if (modM != null)
+		{
+			Delegate del = modM.CreateDelegate(typeof(global::On.Terraria.Wiring.hook_Teleport));
+			HookEndpointManager.Remove(origM, del);
+		}
+		else
+		{
+			Logger.Warn("Unable to apply Teleporters unnerf");
+		}	
 	}
 
 	protected override void Revert()

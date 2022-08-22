@@ -40,6 +40,7 @@ public class CalamityFly : Mod
 #if DEBUG
 	public static void LogCursor(ILCursor cursor, int limit = int.MaxValue, bool resetIndex = true)
 	{
+		Instance ??= (CalamityFly)ModLoader.GetMod("CalamityFly");
 		if(resetIndex) cursor.Index = 0;
 		int c = 0;
 		do
