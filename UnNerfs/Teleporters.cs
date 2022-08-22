@@ -6,7 +6,7 @@ using System;
 using Terraria;
 
 namespace CalamityFly.UnNerfs;
-
+/*
 internal class Teleporters : BaseUnNerf
 {
 	protected override bool Active(UnNerfsConfig config) => config.Teleporters;
@@ -31,3 +31,4 @@ internal class Teleporters : BaseUnNerf
 	protected override void Revert()
 	{}
 }
+*/
