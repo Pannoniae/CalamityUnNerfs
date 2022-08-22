@@ -44,20 +44,25 @@ internal class SummonDamage : BaseUnNerf
 		cursor.Index = 0;
 
 		if (!cursor.TryGotoNext(MoveType.Before,
-			i => i.MatchStloc(7)
+			i => i.MatchStloc(5)
 			))
 		{
 			Logger.Warn("unable to edit Player_ModifyHitNPCWithProj (error:15)");
 			return;
 		}
-		if (cursor.Prev.OpCode != OpCodes.Ldc_R8)
+
+		if (!cursor.TryGotoNext(MoveType.After,
+			i => i.MatchLdcR8(0.5)
+			))
 		{
 			Logger.Warn("unable to edit Player_ModifyHitNPCWithProj (error:16)");
 			return;
 		}
 		cursor.Prev.Operand = 1d;
-		cursor.Index -= 2;
-		if (cursor.Prev.OpCode != OpCodes.Ldc_R8)
+
+		if (!cursor.TryGotoNext(MoveType.After,
+			i => i.MatchLdcR8(0.75)
+			))
 		{
 			Logger.Warn("unable to edit Player_ModifyHitNPCWithProj (error:17)");
 			return;
