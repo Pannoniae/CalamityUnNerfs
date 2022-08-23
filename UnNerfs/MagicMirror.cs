@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using Terraria.ID;
 
 namespace CalamityFly.UnNerfs;
-
+/*
 internal class MagicMirror : BaseUnNerf
 {
 	static readonly List<int> mirrors = new () {
@@ -29,3 +29,4 @@ internal class MagicMirror : BaseUnNerf
 		UseItemHelper.UnInit();
 	}
 }
+*/

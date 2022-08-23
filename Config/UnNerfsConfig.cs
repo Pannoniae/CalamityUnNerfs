@@ -33,13 +33,13 @@ public class UnNerfsConfig : ModConfig
 	[Tooltip("True to allow the rod of discord to be used while chaos state is active, also use vanilla bebuff duration")]
 	public bool RodOfDiscord;
 
-	[Label("Magic Mirror")]
+	/*[Label("Magic Mirror")]
 	[ReloadRequired]
 	[DefaultValue(true)]
 	[Tooltip("True to allow use of magic mirror/recall potion while fighting a boss")]
 	public bool MagicMirror;
 
-	/*[ReloadRequired]
+	[ReloadRequired]
 	[DefaultValue(true)]
 	[Tooltip("True to allow use of teleporters while fighting a boss")]
 	public bool Teleporters;*/
@@ -86,6 +86,13 @@ public class UnNerfsConfig : ModConfig
 	[DefaultValue(false)]
 	[Tooltip("True to make the Frozen Turtle Shell grants 25% damage reduction again")]
 	public bool FrozenTurtleShell;
+
+	[Header("Armor Sets Un-Nerfs")]
+	[Label("Meteor Armor Set")]
+	[ReloadRequired]
+	[DefaultValue(false)]
+	[Tooltip("True to make the Meteor Armor Set remove the space gun's mana consumption instead of halving it")]
+	public bool MeteorArmorSet;
 
 	[Header("Crafts")]
 	[Label("Zenith Vanilla Craft")]

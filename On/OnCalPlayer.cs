@@ -10,6 +10,10 @@ public static class OnCalPlayer
 
 	public delegate void orig_DealDefenseDamage(OrigCalPlayer self, int damage);
 
+	public delegate void hook_ForceVariousEffects(orig_DealDefenseDamage orig, OrigCalPlayer self);
+
+	public delegate void orig_ForceVariousEffects(OrigCalPlayer self);
+
 	public static event hook_DealDefenseDamage DealDefenseDamage
 	{
 		add

@@ -13,8 +13,7 @@ public class CalamityFly : Mod
 
 	public override void Load()
 	{
-		Instance = this;
-		
+		Instance = this;	
 	}
 
 	public override void AddRecipes()
