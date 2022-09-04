@@ -81,11 +81,23 @@ public class UnNerfsConfig : ModConfig
 	[Tooltip("True to make the Endurance Potion grants 10% damage reduction again")]
 	public bool EndurancePotion;
 
+	[Label("Magic Power Potion")]
+	[ReloadRequired]
+	[DefaultValue(false)]
+	[Tooltip("True to make the Magic Power Potion grants 20% magic damage again")]
+	public bool MagicPowerPotion;
+
 	[Label("Frozen Turtle Shell")]
 	[ReloadRequired]
 	[DefaultValue(false)]
 	[Tooltip("True to make the Frozen Turtle Shell grants 25% damage reduction again")]
 	public bool FrozenTurtleShell;
+
+	[Label("Dodge Items")]
+	[ReloadRequired]
+	[DefaultValue(false)]
+	[Tooltip("True to make the Brain of Confusion and Master Ninja Gear not use calamity global cd instead restore vanilla behaviour")]
+	public bool DodgeItems;
 
 	[Header("Armor Sets Un-Nerfs")]
 	[Label("Meteor Armor Set")]
