@@ -96,7 +96,7 @@ public class UnNerfsConfig : ModConfig
 	[Label("Dodge Items")]
 	[ReloadRequired]
 	[DefaultValue(false)]
-	[Tooltip("True to make the Brain of Confusion and Master Ninja Gear not use calamity global cd instead restore vanilla behaviour")]
+	[Tooltip("True to make the Brain of Confusion and Master Ninja Gear not use calamity global cd instead restore vanilla behavior")]
 	public bool DodgeItems;
 
 	[Header("Armor Sets Un-Nerfs")]
