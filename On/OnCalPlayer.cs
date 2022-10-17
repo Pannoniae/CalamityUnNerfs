@@ -6,9 +6,9 @@ namespace CalamityFly.On;
 
 public static class OnCalPlayer
 {
-	public delegate void hook_DealDefenseDamage(orig_DealDefenseDamage orig, OrigCalPlayer self, int damage);
+	public delegate void hook_DealDefenseDamage(orig_DealDefenseDamage orig, OrigCalPlayer self, int damage, double realDamage);
 
-	public delegate void orig_DealDefenseDamage(OrigCalPlayer self, int damage);
+	public delegate void orig_DealDefenseDamage(OrigCalPlayer self, int damage, double realDamage);
 
 	public delegate void hook_ForceVariousEffects(orig_DealDefenseDamage orig, OrigCalPlayer self);
 
