@@ -13,27 +13,7 @@ public class CalamityFly : Mod
 
 	public override void Load()
 	{
-		Instance = this;	
-	}
-
-	public override void AddRecipes()
-	{
-		if(config.VanillaZenithCraft)
-		{
-			Recipe.Create(ItemID.Zenith)
-			.AddIngredient(ItemID.TerraBlade)
-			.AddIngredient(ItemID.Meowmere)
-			.AddIngredient(ItemID.StarWrath)
-			.AddIngredient(ItemID.InfluxWaver)
-			.AddIngredient(ItemID.TheHorsemansBlade)
-			.AddIngredient(ItemID.Seedler)
-			.AddIngredient(ItemID.Starfury)
-			.AddIngredient(ItemID.BeeKeeper)
-			.AddIngredient(ItemID.EnchantedSword)
-			.AddIngredient(ItemID.CopperShortsword)
-			.AddTile(TileID.MythrilAnvil)
-			.Register();
-		}
+		Instance = this;
 	}
 
 #if DEBUG
