@@ -18,7 +18,7 @@ public class DefenseDamage : BaseUnNerf
 		OnCalPlayer.DealDefenseDamage -= CalamityPlayer_DealDefenseDamage;
 	}
 
-	private void CalamityPlayer_DealDefenseDamage(OnCalPlayer.orig_DealDefenseDamage orig, CalamityPlayer self, int damage)
+	private void CalamityPlayer_DealDefenseDamage(OnCalPlayer.orig_DealDefenseDamage orig, CalamityPlayer self, int damage, double realDamage)
 	{
 	}
 }
