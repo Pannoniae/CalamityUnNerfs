@@ -12,7 +12,7 @@ public abstract class BaseUnNerf : ILoadable
 	public void Load(Mod mod)
 	{
 		Logger = mod.Logger;
-		if(Active(CalamityFly.config))
+		if (Active(CalamityFly.config))
 		{
 			Logger.Info($"Applying {GetType().Name} unnerf");
 			Apply();
