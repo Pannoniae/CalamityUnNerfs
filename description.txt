@@ -1,5 +1,12 @@
 A mod that simply removes some of the nerfs Calamity does to the vanilla game.
 
+Main features:
+- remove defense damage
+- soaring insignia infinity fly again
+- no summon damage reduction
+- no damage reduction cap
+- and more!
+
 Any change in configuration requires reload
 
 NOTE: The tooltips will continue to show the calamity information but the values in the background are the un-nerfed ones, I'm just too lazy to modify each tooltip
