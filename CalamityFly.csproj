@@ -12,7 +12,13 @@
   </ItemGroup>
   <ItemGroup>
     <Reference Include="CalamityMod">
-      <HintPath>..\..\ModReader\CalamityMod\CalamityMod.dll</HintPath>
+      <HintPath>..\..\Patcher\CalamityMod\CalamityMod.dll</HintPath>
+    </Reference>
+    <Reference Include="CardCounting">
+      <HintPath>D:\dev\cs\CardCounting\obj\Debug\net5.0\CardCounting.dll</HintPath>
+    </Reference>
+    <Reference Include="tModLoader">
+      <HintPath>D:\games\steam\steamapps\common\tModLoader\tModLoader.dll</HintPath>
     </Reference>
   </ItemGroup>
 </Project>

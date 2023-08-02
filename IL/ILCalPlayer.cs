@@ -1,6 +1,7 @@
 ﻿using MonoMod.Cil;
 using MonoMod.RuntimeDetour.HookGen;
 using System.Reflection;
+using Terraria.ModLoader;
 using static CalamityFly.On.OnCalPlayer;
 using OrigCalPlayer = CalamityMod.CalPlayer.CalamityPlayer;
 
@@ -14,13 +15,12 @@ public static class IlCalPlayer
 		{
 			var t = typeof(OrigCalPlayer);
 			var n = t.GetMethod("ModifyHitNPCWithProj");
-			HookEndpointManager.Modify<hook_ModifyHitNPCWithProj>(n, value);
+			MonoModHooks.Modify(n, value);
+			//hook_ModifyHitNPCWithProj
 		}
 		remove
 		{
-			var t = typeof(OrigCalPlayer);
-			var n = t.GetMethod("ModifyHitNPCWithProj");
-			HookEndpointManager.Unmodify<hook_ModifyHitNPCWithProj>(n, value);
+			
 		}
 	}
 
@@ -35,18 +35,12 @@ public static class IlCalPlayer
 				CalamityFly.Instance.Logger.Warn("Unable to Il Edit method OrigCalPlayer.ForceVariousEffects (error:1)");
 				return;
 			}
-			HookEndpointManager.Modify<hook_ForceVariousEffects>(n, value);
+			MonoModHooks.Modify(n, value);
+			//hook_ForceVariousEffects
 		}
 		remove
 		{
-			var t = typeof(OrigCalPlayer);
-			var n = t.GetMethod("ForceVariousEffects", BindingFlags.Instance | BindingFlags.NonPublic);
-			if (n == null)
-			{
-				CalamityFly.Instance.Logger.Warn("Unable to Il Edit method OrigCalPlayer.ForceVariousEffects (error:2)");
-				return;
-			}
-			HookEndpointManager.Unmodify<hook_ForceVariousEffects>(n, value);
+			
 		}
 	}
 

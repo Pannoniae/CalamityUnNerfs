@@ -2,7 +2,6 @@
 using Mono.Cecil.Cil;
 using MonoMod.Cil;
 using System;
-using Player = IL.Terraria.Player;
 using System.Collections.Generic;
 
 namespace CalamityFly.Helpers;
@@ -17,7 +16,7 @@ internal static class UseItemHelper
 	{
 		if(initcount++ == 0)
 		{
-			Player.ItemCheck_CheckCanUse += UnNerfUsableItems;
+			IL_Player.ItemCheck_CheckCanUse += UnNerfUsableItems;
 		}
 	}
 
@@ -25,7 +24,7 @@ internal static class UseItemHelper
 	{
 		if (--initcount == 0)
 		{
-			Player.ItemCheck_CheckCanUse -= UnNerfUsableItems;
+			IL_Player.ItemCheck_CheckCanUse -= UnNerfUsableItems;
 		}
 	}
 

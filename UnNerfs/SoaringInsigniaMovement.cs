@@ -1,6 +1,6 @@
 ﻿using CalamityFly.Config;
-using IL.Terraria;
 using MonoMod.Cil;
+using Terraria;
 
 namespace CalamityFly.UnNerfs;
 
@@ -10,14 +10,14 @@ internal class SoaringInsigniaMovement : BaseUnNerf
 
 	protected override void Apply()
 	{
-		Player.Update += UnNerfSoaringAcceleration;
-		Player.UpdateJumpHeight += UnNerfSoaringJump;
+		IL_Player.Update += UnNerfSoaringAcceleration;
+		IL_Player.UpdateJumpHeight += UnNerfSoaringJump;
 	}
 
 	protected override void Revert()
 	{
-		Player.Update -= UnNerfSoaringAcceleration;
-		Player.UpdateJumpHeight -= UnNerfSoaringJump;
+		IL_Player.Update -= UnNerfSoaringAcceleration;
+		IL_Player.UpdateJumpHeight -= UnNerfSoaringJump;
 	}
 
 	private void UnNerfSoaringJump(ILContext il)

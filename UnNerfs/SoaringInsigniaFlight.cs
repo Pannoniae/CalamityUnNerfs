@@ -1,7 +1,7 @@
 ﻿using CalamityFly.Config;
-using IL.Terraria;
 using Mono.Cecil.Cil;
 using MonoMod.Cil;
+using Terraria;
 
 namespace CalamityFly.UnNerfs;
 
@@ -9,8 +9,8 @@ public class SoaringInsigniaFlight : BaseUnNerf
 {
 	protected override void Apply()
 	{
-		Player.WingMovement += UnNerfSoarinfInfiniteWings;
-		Player.Update += UnNerfSoaringInfiniteRocket;
+		IL_Player.WingMovement += UnNerfSoarinfInfiniteWings;
+		IL_Player.Update += UnNerfSoaringInfiniteRocket;
 	}
 
 	private void UnNerfSoaringInfiniteRocket(ILContext il)
@@ -60,8 +60,8 @@ public class SoaringInsigniaFlight : BaseUnNerf
 
 	protected override void Revert()
 	{
-		Player.WingMovement -= UnNerfSoarinfInfiniteWings;
-		Player.Update -= UnNerfSoaringInfiniteRocket;
+		IL_Player.WingMovement -= UnNerfSoarinfInfiniteWings;
+		IL_Player.Update -= UnNerfSoaringInfiniteRocket;
 	}
 
 	protected override bool Active(UnNerfsConfig config) => config.SoaringInsigniaFlight;

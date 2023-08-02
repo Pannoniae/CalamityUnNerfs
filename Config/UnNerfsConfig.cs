@@ -8,7 +8,7 @@ public class UnNerfsConfig : ModConfig
 {
 	public override ConfigScope Mode => ConfigScope.ServerSide;
 
-	[Header("Un-Nerfs")]
+	[Header("unnerfs")]
 	[Label("Soaring Insignia Flight")]
 	[ReloadRequired]
 	[DefaultValue(true)]
@@ -49,8 +49,9 @@ public class UnNerfsConfig : ModConfig
 	[DefaultValue(true)]
 	[Tooltip("True to remove damage reduction of Yoyo Bag and Yoyo Glove")]
 	public bool YoyoBag;
-
-	[Header("Damage/Defense/Endurance Un-Nerfs")]
+	
+	//Damage/Defense/Endurance Un-Nerfs
+	[Header("defenseDamage")]
 	[Label("Defense Damage")]
 	[ReloadRequired]
 	[DefaultValue(false)]
@@ -99,14 +100,14 @@ public class UnNerfsConfig : ModConfig
 	[Tooltip("True to make the Brain of Confusion and Master Ninja Gear not use calamity global cd instead restore vanilla behavior")]
 	public bool DodgeItems;
 
-	[Header("Armor Sets Un-Nerfs")]
+	[Header("armorSetUnnerfs")]
 	[Label("Meteor Armor Set")]
 	[ReloadRequired]
 	[DefaultValue(false)]
 	[Tooltip("True to make the Meteor Armor Set remove the space gun's mana consumption instead of halving it")]
 	public bool MeteorArmorSet;
 
-	[Header("Crafts")]
+	[Header("crafts")]
 	[Label("Zenith Vanilla Craft")]
 	[ReloadRequired]
 	[DefaultValue(false)]

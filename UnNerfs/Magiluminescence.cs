@@ -1,6 +1,6 @@
 ﻿using CalamityFly.Config;
-using IL.Terraria;
 using MonoMod.Cil;
+using Terraria;
 
 namespace CalamityFly.UnNerfs;
 
@@ -10,18 +10,18 @@ internal class Magiluminescence : BaseUnNerf
 
 	protected override void Apply()
 	{
-		Player.Update += UnNerfMagiluminescence;
+		IL_Player.Update += UnNerfMagiluminescence;
 	}
 
 	protected override void Revert()
 	{
-		Player.Update -= UnNerfMagiluminescence;
+		IL_Player.Update -= UnNerfMagiluminescence;
 	}
 
 	private void UnNerfMagiluminescence(ILContext il)
 	{
 		var cursor = new ILCursor(il);
-		if (!cursor.TryGotoNext(MoveType.After, i => i.MatchLdfld<Terraria.Player>("hasMagiluminescence")))
+		if (!cursor.TryGotoNext(MoveType.After, i => i.MatchLdfld<Player>("hasMagiluminescence")))
 		{
 			Logger.Warn("unable to edit Player_Update (error:10)");
 			return;
@@ -31,24 +31,24 @@ internal class Magiluminescence : BaseUnNerf
 			Logger.Warn("unable to edit Player_Update (error:11)");
 			return;
 		}
-		cursor.Next.Operand = 2f;
-		if (!cursor.TryGotoNext(MoveType.Before, i => i.MatchLdcR4(1f)))
+		cursor.Next.Operand = 1.75f;
+		if (!cursor.TryGotoNext(MoveType.Before, i => i.MatchLdcR4(1.05f)))
 		{
 			Logger.Warn("unable to edit Player_Update (error:12)");
 			return;
 		}
-		cursor.Next.Operand = 1.2f;
-		if (!cursor.TryGotoNext(MoveType.Before, i => i.MatchLdcR4(1f)))
+		cursor.Next.Operand = 1.15f;
+		if (!cursor.TryGotoNext(MoveType.Before, i => i.MatchLdcR4(1.05f)))
 		{
 			Logger.Warn("unable to edit Player_Update (error:13)");
 			return;
 		}
-		cursor.Next.Operand = 1.2f;
+		cursor.Next.Operand = 1.15f;
 		if (!cursor.TryGotoNext(MoveType.Before, i => i.MatchLdcR4(1.25f)))
 		{
 			Logger.Warn("unable to edit Player_Update (error:14)");
 			return;
 		}
-		cursor.Next.Operand = 2f;
+		cursor.Next.Operand = 1.75f;
 	}
 }

@@ -15,7 +15,7 @@ public class DefenseDamage : BaseUnNerf
 
 	protected override void Revert()
 	{
-		OnCalPlayer.DealDefenseDamage -= CalamityPlayer_DealDefenseDamage;
+		//OnCalPlayer.DealDefenseDamage -= CalamityPlayer_DealDefenseDamage;
 	}
 
 	private void CalamityPlayer_DealDefenseDamage(OnCalPlayer.orig_DealDefenseDamage orig, CalamityPlayer self, int damage, double realDamage)

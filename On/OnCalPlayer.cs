@@ -1,5 +1,5 @@
-﻿using MonoMod.RuntimeDetour.HookGen;
-using System.Reflection;
+﻿using System.Reflection;
+using Terraria.ModLoader;
 using OrigCalPlayer = CalamityMod.CalPlayer.CalamityPlayer;
 
 namespace CalamityFly.On;
@@ -14,21 +14,16 @@ public static class OnCalPlayer
 
 	public delegate void orig_ForceVariousEffects(OrigCalPlayer self);
 
-	public static event hook_DealDefenseDamage DealDefenseDamage
-	{
+	public static event hook_DealDefenseDamage DealDefenseDamage {
 		add
 		{
 			var t = typeof(OrigCalPlayer);
 			var m = t.GetMethod("DealDefenseDamage", BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.DeclaredOnly);
 
-			HookEndpointManager.Add<hook_DealDefenseDamage>(m, value);
+			MonoModHooks.Add(m, value);
 		}
-		remove
-		{
-			var t = typeof(OrigCalPlayer);
-			var m = t.GetMethod("DealDefenseDamage", BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.DeclaredOnly);
-
-			HookEndpointManager.Remove<hook_DealDefenseDamage>(m, value);
+		remove {
+			
 		}
 	}
 

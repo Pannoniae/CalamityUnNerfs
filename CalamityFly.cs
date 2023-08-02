@@ -1,7 +1,5 @@
 using CalamityFly.Config;
 using MonoMod.Cil;
-using Terraria;
-using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace CalamityFly;

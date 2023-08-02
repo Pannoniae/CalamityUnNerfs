@@ -4,6 +4,8 @@ using CalamityMod;
 using Mono.Cecil.Cil;
 using MonoMod.Cil;
 using System;
+using CalamityMod.Balancing;
+using CalamityMod.CalPlayer;
 using Terraria;
 
 namespace CalamityFly.UnNerfs;
@@ -28,7 +30,7 @@ internal class SummonDamage : BaseUnNerf
 	{
 		var cursor = new ILCursor(il);
 
-		// rogue max stealh fix
+		// rogue max stealth fix
 		var rogueType = typeof(RogueDamageClass);
 		var ProjType = typeof(Projectile);
 		var MethodBase = ProjType.GetMethod("CountsAsClass", 1, Type.EmptyTypes);
@@ -44,29 +46,14 @@ internal class SummonDamage : BaseUnNerf
 		cursor.Index = 0;
 
 		if (!cursor.TryGotoNext(MoveType.Before,
-			i => i.MatchStloc(5)
-			))
-		{
-			Logger.Warn("unable to edit Player_ModifyHitNPCWithProj (error:15)");
-			return;
-		}
-
-		if (!cursor.TryGotoNext(MoveType.After,
-			i => i.MatchLdcR8(0.5)
-			))
-		{
-			Logger.Warn("unable to edit Player_ModifyHitNPCWithProj (error:16)");
-			return;
-		}
-		cursor.Prev.Operand = 1d;
-
-		if (!cursor.TryGotoNext(MoveType.After,
-			i => i.MatchLdcR8(0.75)
-			))
+			    i => i.MatchLdsfld(typeof(BalancingConstants), "SummonerCrossClassNerf")
+		    ))
 		{
 			Logger.Warn("unable to edit Player_ModifyHitNPCWithProj (error:17)");
 			return;
 		}
-		cursor.Prev.Operand = 1d;
+		//cursor.Prev.Operand = 1d;
+		cursor.Remove();
+		cursor.Emit(OpCodes.Ldc_R4, 1f);
 	}
 }
