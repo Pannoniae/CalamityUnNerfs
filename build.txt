@@ -1,5 +1,5 @@
 displayName = UnNerfs Calamity
 author = Kokopai
-version = 0.8.1
+version = 0.8.2
 modReferences = CalamityMod
 homepage = https://discord.gg/7wY4pFwXhP
