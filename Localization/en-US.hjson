@@ -1,0 +1,97 @@
+Mods: {
+	CalamityFly: {
+		Configs: {
+			UnNerfsConfig: {
+				DisplayName: Un-Nerfs Config
+
+				Headers: {
+					reverts: Restoring Old Features
+					unnerfs: Calamity Un-Nerfs
+					defenseDamage: Endurance Un-Nerfs
+					armorSetUnnerfs: Armor set Un-Nerfs
+					crafts: Crafting
+				}
+
+				sellAdditionalItems: {
+					Tooltip: If enabled, Town NPCs sell potions, various materials and other things intended to reduce grinding.
+					Label: "[i:73] Town NPCs Sell Potions"
+				}
+
+				SoaringInsigniaFlight: {
+					Label: Soaring Insignia Flight
+					Tooltip: true to remove the infinite flight calamity nerf to the soaring insignia, false to keep the nerf
+				}
+
+				SoaringInsigniaMovement: {
+					Label: Soaring Insignia Movement
+					Tooltip: True to remove the movement calamity nerf to the soaring insignia, false to keep the nerf
+				}
+
+				Magiluminescence: {
+					Label: Magiluminescence Stats
+					Tooltip: True to remove the stats calamity nerf to the magiluminescence, false to keep the nerf
+				}
+
+				RodOfDiscord: {
+					Label: Rod Of Discord
+					Tooltip: True to allow the rod of discord to be used while chaos state is active, also use vanilla debuff duration
+				}
+
+				YoyoBag: {
+					Label: Yoyo Bag And Glove
+					Tooltip: True to remove damage reduction of Yoyo Bag and Yoyo Glove
+				}
+
+				DefenseDamage: {
+					Label: Defense Damage
+					Tooltip: True to remove defense damage from calamity
+				}
+
+				SummonDamage: {
+					Label: Summon Damage
+					Tooltip: True to remove damage reduction to minions while holding a weapon of another class
+				}
+
+				DamageReductionCap: {
+					Label: Damage Reduction Cap
+					Tooltip: True to remove damage reduction cap of calamity
+				}
+
+				WormScarf: {
+					Label: Worm Scarf
+					Tooltip: True to make the Worm Scarf grants 17% damage reduction again
+				}
+
+				EndurancePotion: {
+					Label: Endurance Potion
+					Tooltip: True to make the Endurance Potion grants 10% damage reduction again
+				}
+
+				MagicPowerPotion: {
+					Label: Magic Power Potion
+					Tooltip: True to make the Magic Power Potion grants 20% magic damage again
+				}
+
+				FrozenTurtleShell: {
+					Label: Frozen Turtle Shell
+					Tooltip: True to make the Frozen Turtle Shell grants 25% damage reduction again
+				}
+
+				DodgeItems: {
+					Label: Dodge Items
+					Tooltip: True to make the Brain of Confusion and Master Ninja Gear not use calamity global cd instead restore vanilla behavior
+				}
+
+				MeteorArmorSet: {
+					Label: Meteor Armor Set
+					Tooltip: True to make the Meteor Armor Set remove the space gun's mana consumption instead of halving it
+				}
+
+				VanillaZenithCraft: {
+					Label: Zenith Vanilla Craft
+					Tooltip: Set to true to add an alternate vanilla craft to Zenith but without auric bar, the calamity craft will stay, only not use it
+				}
+			}
+		}
+	}
+}

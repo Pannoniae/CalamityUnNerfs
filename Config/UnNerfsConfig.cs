@@ -7,6 +7,10 @@ public class UnNerfsConfig : ModConfig
 {
 	public override ConfigScope Mode => ConfigScope.ServerSide;
 
+	[Header("reverts")]
+	[DefaultValue(true)]
+	public bool sellAdditionalItems;
+
 	[Header("unnerfs")]
 	[ReloadRequired]
 	[DefaultValue(true)]
@@ -34,11 +38,11 @@ public class UnNerfsConfig : ModConfig
 	[DefaultValue(true)]
 	[Tooltip("True to allow use of teleporters while fighting a boss")]
 	public bool Teleporters;*/
-	
+
 	[ReloadRequired]
 	[DefaultValue(true)]
 	public bool YoyoBag;
-	
+
 	//Damage/Defense/Endurance Un-Nerfs
 	[Header("defenseDamage")]
 	[ReloadRequired]
