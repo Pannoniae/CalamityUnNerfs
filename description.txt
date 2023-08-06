@@ -2,6 +2,7 @@ A mod that simply removes some of the nerfs Calamity does to the vanilla game.
 
 Main features:
 - remove defense damage
+- restore NPCs selling potions
 - soaring insignia infinity fly again
 - no summon damage reduction
 - no damage reduction cap
