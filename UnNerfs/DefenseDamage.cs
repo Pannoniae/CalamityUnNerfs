@@ -6,14 +6,16 @@ namespace CalamityFly.UnNerfs;
 
 public class DefenseDamage : BaseUnNerf
 {
-	protected override bool Active(UnNerfsConfig config) => config.DefenseDamage;
+	public override bool Active(UnNerfsConfig config) => config.DefenseDamage;
 
-	protected override void Apply()
+	public override void Apply()
 	{
+		base.Apply();
 		OnCalPlayer.DealDefenseDamage += CalamityPlayer_DealDefenseDamage;
+		
 	}
 
-	protected override void Revert()
+	public override void Revert()
 	{
 		//OnCalPlayer.DealDefenseDamage -= CalamityPlayer_DealDefenseDamage;
 	}

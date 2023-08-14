@@ -6,15 +6,16 @@ namespace CalamityFly.UnNerfs;
 
 internal class SoaringInsigniaMovement : BaseUnNerf
 {
-	protected override bool Active(UnNerfsConfig config) => config.SoaringInsigniaMovement;
+	public override bool Active(UnNerfsConfig config) => config.SoaringInsigniaMovement;
 
-	protected override void Apply()
+	public override void Apply()
 	{
+		base.Apply();
 		IL_Player.Update += UnNerfSoaringAcceleration;
 		IL_Player.UpdateJumpHeight += UnNerfSoaringJump;
 	}
 
-	protected override void Revert()
+	public override void Revert()
 	{
 		IL_Player.Update -= UnNerfSoaringAcceleration;
 		IL_Player.UpdateJumpHeight -= UnNerfSoaringJump;

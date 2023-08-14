@@ -8,10 +8,11 @@ namespace CalamityFly.UnNerfs.ArmorSets;
 
 internal class MeteorArmorSetUnnerf : BaseUnNerf
 {
-	protected override bool Active(UnNerfsConfig config) => config.MeteorArmorSet;
+	public override bool Active(UnNerfsConfig config) => config.MeteorArmorSet;
 
-	protected override void Apply()
+	public override void Apply()
 	{
+		base.Apply();
 		IlCalPlayer.ForceVariousEffects += IlCalPlayer_ForceVariousEffects;
 	}
 
@@ -36,7 +37,7 @@ internal class MeteorArmorSetUnnerf : BaseUnNerf
 		cursor.Emit(OpCodes.Ldc_I4_1);
 	}
 
-	protected override void Revert()
+	public override void Revert()
 	{
 		IlCalPlayer.ForceVariousEffects -= IlCalPlayer_ForceVariousEffects;
 	}

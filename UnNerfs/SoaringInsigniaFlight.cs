@@ -7,8 +7,9 @@ namespace CalamityFly.UnNerfs;
 
 public class SoaringInsigniaFlight : BaseUnNerf
 {
-	protected override void Apply()
+	public override void Apply()
 	{
+		base.Apply();
 		IL_Player.WingMovement += UnNerfSoarinfInfiniteWings;
 		IL_Player.Update += UnNerfSoaringInfiniteRocket;
 	}
@@ -58,11 +59,11 @@ public class SoaringInsigniaFlight : BaseUnNerf
 		}
 	}
 
-	protected override void Revert()
+	public override void Revert()
 	{
 		IL_Player.WingMovement -= UnNerfSoarinfInfiniteWings;
 		IL_Player.Update -= UnNerfSoaringInfiniteRocket;
 	}
 
-	protected override bool Active(UnNerfsConfig config) => config.SoaringInsigniaFlight;
+	public override bool Active(UnNerfsConfig config) => config.SoaringInsigniaFlight;
 }

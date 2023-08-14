@@ -12,14 +12,15 @@ namespace CalamityFly.UnNerfs;
 
 internal class SummonDamage : BaseUnNerf
 {
-	protected override bool Active(UnNerfsConfig config) => config.SummonDamage;
+	public override bool Active(UnNerfsConfig config) => config.SummonDamage;
 
-	protected override void Apply()
+	public override void Apply()
 	{
+		base.Apply();
 		IlCalPlayer.ModifyHitNPCWithProj += IlCalPlayer_ModifyHitNPCWithProj;
 	}
 
-	protected override void Revert()
+	public override void Revert()
 	{
 		IlCalPlayer.ModifyHitNPCWithProj -= IlCalPlayer_ModifyHitNPCWithProj;
 	}

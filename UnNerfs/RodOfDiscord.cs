@@ -6,15 +6,16 @@ namespace CalamityFly.UnNerfs;
 
 internal class RodOfDiscord : BaseUnNerf
 {
-	protected override bool Active(UnNerfsConfig config)  => config.RodOfDiscord;
+	public override bool Active(UnNerfsConfig config)  => config.RodOfDiscord;
 
-	protected override void Apply()
+	public override void Apply()
 	{
+		base.Apply();
 		UseItemHelper.Init();
 		UseItemHelper.UsableItem(ItemID.RodofDiscord);
 	}
 
-	protected override void Revert()
+	public override void Revert()
 	{
 		UseItemHelper.UnusableItem(ItemID.RodofDiscord);
 		UseItemHelper.UnInit();

@@ -6,14 +6,15 @@ namespace CalamityFly.UnNerfs;
 
 internal class Magiluminescence : BaseUnNerf
 {
-	protected override bool Active(UnNerfsConfig config) => config.Magiluminescence;
+	public override bool Active(UnNerfsConfig config) => config.Magiluminescence;
 
-	protected override void Apply()
+	public override void Apply()
 	{
+		base.Apply();
 		IL_Player.Update += UnNerfMagiluminescence;
 	}
 
-	protected override void Revert()
+	public override void Revert()
 	{
 		IL_Player.Update -= UnNerfMagiluminescence;
 	}
