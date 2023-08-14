@@ -202,7 +202,7 @@ public class NPCShops : GlobalNPC {
     /// <param name="description">The description to use for the condition.</param>
     private void addToShop(NPCShop shop, int itemID, int? price = null, Func<bool>? cond = null,
         LocalizedText? description = null) {
-        if (CalamityFly.config.sellAdditionalItems) {
+        if (!CalamityFly.config.sellAdditionalItems) {
             return;
         }
 
@@ -226,7 +226,7 @@ public class NPCShops : GlobalNPC {
     }
 
     private void addToShop(NPCShop shop, int itemID, Condition cond, int? price = null) {
-        if (CalamityFly.config.sellAdditionalItems) {
+        if (!CalamityFly.config.sellAdditionalItems) {
             return;
         }
 
