@@ -1,4 +1,4 @@
-﻿using CalamityUnNerfs.Config;
+﻿using CalamityFly.Config;
 using log4net;
 using Terraria.ModLoader;
 
@@ -10,9 +10,9 @@ public abstract class BaseUnNerf : ILoadable {
     // We load earlier than Calamity.
     public void Load(Mod mod) {
         Logger = mod.Logger;
-        if (Active(CalamityUnNerfs.config)) {
+        if (Active(CalamityFly.config)) {
             EarlyApply();
-            ((CalamityUnNerfs)mod).registerForPostSetup(this);
+            ((CalamityFly)mod).registerForPostSetup(this);
         }
     }
 
@@ -31,7 +31,7 @@ public abstract class BaseUnNerf : ILoadable {
     }
 
     public void Unload() {
-        if (Active(CalamityUnNerfs.config)) {
+        if (Active(CalamityFly.config)) {
             Revert();
         }
 

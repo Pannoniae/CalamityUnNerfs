@@ -1,12 +1,12 @@
 using System.Collections.Generic;
+using CalamityFly.Config;
 using CalamityFly.UnNerfs;
-using CalamityUnNerfs.Config;
 using MonoMod.Cil;
 using Terraria.ModLoader;
 
 namespace CalamityFly;
 
-public class CalamityUnNerfs : Mod {
+public class CalamityFly : Mod {
 
     private static List<BaseUnNerf> unnerfs = new();
 
