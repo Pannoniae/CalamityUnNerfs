@@ -24,7 +24,7 @@ internal class SoaringInsigniaMovement : BaseUnNerf
 	private void UnNerfSoaringJump(ILContext il)
 	{
 		var cursor = new ILCursor(il);
-		if (!cursor.TryGotoNext(MoveType.After, i => i.MatchLdfld<Terraria.Player>("empressBrooch")))
+		if (!cursor.TryGotoNext(MoveType.After, i => i.MatchLdfld<Player>("empressBrooch")))
 		{
 			Logger.Warn("unable to edit Player_WingMovement (error:8)");
 			return;
@@ -41,7 +41,7 @@ internal class SoaringInsigniaMovement : BaseUnNerf
 	private void UnNerfSoaringAcceleration(ILContext il)
 	{
 		var cursor = new ILCursor(il);
-		if (!cursor.TryGotoNext(MoveType.After, i => i.MatchLdfld<Terraria.Player>("empressBrooch")))
+		if (!cursor.TryGotoNext(MoveType.After, i => i.MatchLdfld<Player>("empressBrooch")))
 		{
 			Logger.Warn("unable to edit Player_Update (error:6)");
 			return;

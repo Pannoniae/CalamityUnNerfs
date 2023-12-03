@@ -17,12 +17,12 @@ public class SoaringInsigniaFlight : BaseUnNerf
 	private void UnNerfSoaringInfiniteRocket(ILContext il)
 	{
 		var cursor = new ILCursor(il);
-		if (!cursor.TryGotoNext(MoveType.After, i => i.MatchLdfld<Terraria.Player>("empressBrooch")))
+		if (!cursor.TryGotoNext(MoveType.After, i => i.MatchLdfld<Player>("empressBrooch")))
 		{
 			Logger.Warn("unable to edit Player_Update (error:3)");
 			return;
 		}
-		if (!cursor.TryGotoNext(MoveType.After, i => i.MatchLdfld<Terraria.Player>("empressBrooch")))
+		if (!cursor.TryGotoNext(MoveType.After, i => i.MatchLdfld<Player>("empressBrooch")))
 		{
 			Logger.Warn("unable to edit Player_Update (error:4)");
 			return;
@@ -42,7 +42,7 @@ public class SoaringInsigniaFlight : BaseUnNerf
 	private void UnNerfSoarinfInfiniteWings(ILContext il)
 	{
 		var cursor = new ILCursor(il);
-		if (!cursor.TryGotoNext(MoveType.After, i => i.MatchLdfld<Terraria.Player>("empressBrooch")))
+		if (!cursor.TryGotoNext(MoveType.After, i => i.MatchLdfld<Player>("empressBrooch")))
 		{
 			Logger.Warn("unable to edit Player_WingMovement (error:1)");
 			return;

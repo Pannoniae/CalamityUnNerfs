@@ -1,9 +1,6 @@
 ﻿using MonoMod.Cil;
-using MonoMod.RuntimeDetour.HookGen;
 using System.Reflection;
-using Terraria;
 using Terraria.ModLoader;
-using static CalamityFly.On.OnCalPlayer;
 using OrigCalPlayer = CalamityMod.CalPlayer.CalamityPlayer;
 
 namespace CalamityFly.IL;

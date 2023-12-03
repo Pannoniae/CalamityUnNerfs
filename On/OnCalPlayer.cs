@@ -1,4 +1,5 @@
 ﻿using System.Reflection;
+using Terraria;
 using Terraria.ModLoader;
 using OrigCalPlayer = CalamityMod.CalPlayer.CalamityPlayer;
 
@@ -6,9 +7,12 @@ namespace CalamityFly.On;
 
 public static class OnCalPlayer
 {
-	public delegate void hook_DealDefenseDamage(orig_DealDefenseDamage orig, OrigCalPlayer self, int damage, double realDamage);
+	public delegate void hook_DealDefenseDamage(orig_DealDefenseDamage orig, OrigCalPlayer self, Player.HurtInfo hurtInfo,
+		int customIncomingDamage,
+		bool absolute);
 
-	public delegate void orig_DealDefenseDamage(OrigCalPlayer self, int damage, double realDamage);
+	public delegate void orig_DealDefenseDamage(OrigCalPlayer self, Player.HurtInfo hurtInfo, int customIncomingDamage,
+		bool absolute);
 
 	public delegate void hook_ForceVariousEffects(orig_DealDefenseDamage orig, OrigCalPlayer self);
 
@@ -18,7 +22,7 @@ public static class OnCalPlayer
 		add
 		{
 			var t = typeof(OrigCalPlayer);
-			var m = t.GetMethod("DealDefenseDamage", BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.DeclaredOnly);
+			var m = t.GetMethod("DealDefenseDamage", BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.DeclaredOnly);
 
 			MonoModHooks.Add(m, value);
 		}

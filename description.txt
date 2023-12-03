@@ -12,4 +12,4 @@ Any change in configuration requires reload
 
 NOTE: The tooltips will continue to show the calamity information but the values in the background are the un-nerfed ones, I'm just too lazy to modify each tooltip
 
-Enter this [url=https://discord.gg/7wY4pFwXhP]Discord[/url] to report problems with the mod, make suggestions and see want unnerf are available
+My discord server if you want to talk, I'm lonely: https://discord.gg/w4JvYdkdDP

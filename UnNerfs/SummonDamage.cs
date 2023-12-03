@@ -5,7 +5,6 @@ using Mono.Cecil.Cil;
 using MonoMod.Cil;
 using System;
 using CalamityMod.Balancing;
-using CalamityMod.CalPlayer;
 using Terraria;
 
 namespace CalamityFly.UnNerfs;
