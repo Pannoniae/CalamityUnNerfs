@@ -11,21 +11,22 @@ public class UnNerfsConfig : ModConfig
 	[DefaultValue(true)]
 	public bool sellAdditionalItems;
 
+
+	[ReloadRequired]
+	[DefaultValue(true)]
+	public bool RespawnTimer;
+
 	[Header("unnerfs")]
 	[ReloadRequired]
 	[DefaultValue(true)]
 	public bool SoaringInsigniaFlight;
 
 	[ReloadRequired]
-	[DefaultValue(false)]
+	[DefaultValue(true)]
 	public bool SoaringInsigniaMovement;
 
 	[ReloadRequired]
 	[DefaultValue(true)]
-	public bool Magiluminescence;
-
-	[ReloadRequired]
-	[DefaultValue(false)]
 	public bool RodOfDiscord;
 
 	/*[Label("Magic Mirror")]
@@ -46,40 +47,40 @@ public class UnNerfsConfig : ModConfig
 	//Damage/Defense/Endurance Un-Nerfs
 	[Header("defenseDamage")]
 	[ReloadRequired]
-	[DefaultValue(false)]
+	[DefaultValue(true)]
 	public bool DefenseDamage;
 
 	[ReloadRequired]
-	[DefaultValue(false)]
+	[DefaultValue(true)]
 	public bool SummonDamage;
 
 	[ReloadRequired]
-	[DefaultValue(false)]
+	[DefaultValue(true)]
 	public bool DamageReductionCap;
 
 	[ReloadRequired]
-	[DefaultValue(false)]
+	[DefaultValue(true)]
 	public bool WormScarf;
 
 	[ReloadRequired]
-	[DefaultValue(false)]
+	[DefaultValue(true)]
 	public bool EndurancePotion;
 
 	[ReloadRequired]
-	[DefaultValue(false)]
+	[DefaultValue(true)]
 	public bool MagicPowerPotion;
 
 	[ReloadRequired]
-	[DefaultValue(false)]
+	[DefaultValue(true)]
 	public bool FrozenTurtleShell;
 
 	[ReloadRequired]
-	[DefaultValue(false)]
+	[DefaultValue(true)]
 	public bool DodgeItems;
 
 	[Header("armorSetUnnerfs")]
 	[ReloadRequired]
-	[DefaultValue(false)]
+	[DefaultValue(true)]
 	public bool MeteorArmorSet;
 
 	[Header("crafts")]
