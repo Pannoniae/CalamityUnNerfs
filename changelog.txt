@@ -1,1 +1,1 @@
- - Added respawn time uncap.
+ - Update to latest Calamity.

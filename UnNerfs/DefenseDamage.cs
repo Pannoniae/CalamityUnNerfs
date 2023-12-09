@@ -10,14 +10,14 @@ public class DefenseDamage : BaseUnNerf {
 
     public override void Apply() {
         base.Apply();
-        OnCalPlayer.DealDefenseDamage += CalamityPlayer_DealDefenseDamage;
+        OnCalPlayer.ApplyDefenseDamageInternal += calamityPlayerApplyDefenseDamageInternal;
     }
 
     public override void Revert() {
-        OnCalPlayer.DealDefenseDamage -= CalamityPlayer_DealDefenseDamage;
+        OnCalPlayer.ApplyDefenseDamageInternal -= calamityPlayerApplyDefenseDamageInternal;
     }
 
-    private void CalamityPlayer_DealDefenseDamage(OnCalPlayer.orig_DealDefenseDamage orig, CalamityPlayer self,
-        Player.HurtInfo hurtInfo, int customIncomingDamage, bool absolute) {
+    private void calamityPlayerApplyDefenseDamageInternal(OnCalPlayer.orig_ApplyDefenseDamageInternal orig, CalamityPlayer self,
+        int defenseDamage, bool showVisuals) {
     }
 }
