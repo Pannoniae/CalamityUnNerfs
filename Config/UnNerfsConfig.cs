@@ -32,12 +32,12 @@ public class UnNerfsConfig : ModConfig
 	/*[Label("Magic Mirror")]
 	[ReloadRequired]
 	[DefaultValue(true)]
-	[Tooltip("True to allow use of magic mirror/recall potion while fighting a boss")]
+	[Tooltip("True to allow use of magic mirror/recall potion while fighting a boss.")]
 	public bool MagicMirror;
 
 	[ReloadRequired]
 	[DefaultValue(true)]
-	[Tooltip("True to allow use of teleporters while fighting a boss")]
+	[Tooltip("True to allow use of teleporters while fighting a boss.")]
 	public bool Teleporters;*/
 
 	[ReloadRequired]
