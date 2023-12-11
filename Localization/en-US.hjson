@@ -17,6 +17,11 @@ Mods: {
 					Label: "[i:73] Town NPCs Sell Potions"
 				}
 
+				murasamaUnnerf: {
+					Label: Old Murasama
+					Tooltip: Restores the Murasama to the older values before it was nerfed.
+				}
+
 				SoaringInsigniaFlight: {
 					Label: Soaring Insignia Flight
 					Tooltip: true to remove the infinite flight calamity nerf to the soaring insignia, false to keep the nerf

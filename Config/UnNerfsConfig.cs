@@ -3,20 +3,25 @@ using Terraria.ModLoader.Config;
 
 namespace CalamityFly.Config;
 
-public class UnNerfsConfig : ModConfig
-{
+public class UnNerfsConfig : ModConfig {
+
+	public static UnNerfsConfig Instance;
 	public override ConfigScope Mode => ConfigScope.ServerSide;
 
 	[Header("reverts")]
 	[DefaultValue(true)]
 	public bool sellAdditionalItems;
 
+	[DefaultValue(false)]
+	[ReloadRequired]
+	public bool murasamaUnnerf;
+
+	[Header("unnerfs")]
 
 	[ReloadRequired]
 	[DefaultValue(true)]
 	public bool RespawnTimer;
 
-	[Header("unnerfs")]
 	[ReloadRequired]
 	[DefaultValue(true)]
 	public bool SoaringInsigniaFlight;
