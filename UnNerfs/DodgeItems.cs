@@ -12,6 +12,7 @@ internal class DodgeItems : BaseUnNerf {
     public override bool Active(UnNerfsConfig config) => config.DodgeItems;
 
     public override void EarlyApply() {
+        base.EarlyApply();
         // I'm sorry
         var t = typeof(ILChanges);
         var n = t.GetMethod("DodgeMechanicAdjustments", BindingFlags.Static | BindingFlags.NonPublic);
@@ -25,8 +26,5 @@ internal class DodgeItems : BaseUnNerf {
         //MonoModHooks.DumpIL(ModContent.GetInstance<CalamityUnNerfs>(), il);
         // go to calamity edits in head
         c.Emit(OpCodes.Ret); // fuck it we are canceling the method
-    }
-
-    public override void Revert() {
     }
 }

@@ -5,65 +5,56 @@ using Terraria;
 
 namespace CalamityFly.UnNerfs;
 
-public class SoaringInsigniaFlight : BaseUnNerf
-{
-	public override void Apply()
-	{
-		base.Apply();
-		IL_Player.WingMovement += UnNerfSoarinfInfiniteWings;
-		IL_Player.Update += UnNerfSoaringInfiniteRocket;
-	}
+public class SoaringInsigniaFlight : BaseUnNerf {
+    public override void Apply() {
+        base.Apply();
+        IL_Player.WingMovement += UnNerfSoarinfInfiniteWings;
+        IL_Player.Update += UnNerfSoaringInfiniteRocket;
+    }
 
-	private void UnNerfSoaringInfiniteRocket(ILContext il)
-	{
-		var cursor = new ILCursor(il);
-		if (!cursor.TryGotoNext(MoveType.After, i => i.MatchLdfld<Player>("empressBrooch")))
-		{
-			CalamityFly.Instance.Logger.Warn("unable to edit Player_Update (error:3)");
-			return;
-		}
-		if (!cursor.TryGotoNext(MoveType.After, i => i.MatchLdfld<Player>("empressBrooch")))
-		{
-			CalamityFly.Instance.Logger.Warn("unable to edit Player_Update (error:4)");
-			return;
-		}
-		cursor.Index++;
-		if (cursor.Prev.OpCode == OpCodes.Ldc_I4_0 && cursor.Next.OpCode == OpCodes.And)
-		{
-			cursor.Index--;
-			cursor.RemoveRange(2);
-		}
-		else
-		{
-			CalamityFly.Instance.Logger.Warn("unable to edit Player_Update (error:5)");
-		}
-	}
+    private void UnNerfSoaringInfiniteRocket(ILContext il) {
+        var cursor = new ILCursor(il);
+        if (!cursor.TryGotoNext(MoveType.After, i => i.MatchLdfld<Player>("empressBrooch"))) {
+            CalamityFly.Instance.Logger.Warn("unable to edit Player_Update (error:3)");
+            return;
+        }
 
-	private void UnNerfSoarinfInfiniteWings(ILContext il)
-	{
-		var cursor = new ILCursor(il);
-		if (!cursor.TryGotoNext(MoveType.After, i => i.MatchLdfld<Player>("empressBrooch")))
-		{
-			CalamityFly.Instance.Logger.Warn("unable to edit Player_WingMovement (error:1)");
-			return;
-		}
-		cursor.Index++;
-		if (cursor.Prev.OpCode == OpCodes.Ldc_I4_0 && cursor.Next.OpCode == OpCodes.And)
-		{
-			cursor.Index--;
-			cursor.RemoveRange(2);
-		}
-		else
-		{
-			CalamityFly.Instance.Logger.Warn("unable to edit Player_WingMovement (error:2)");
-		}
-	}
+        if (!cursor.TryGotoNext(MoveType.After, i => i.MatchLdfld<Player>("empressBrooch"))) {
+            CalamityFly.Instance.Logger.Warn("unable to edit Player_Update (error:4)");
+            return;
+        }
 
-	public override void Revert()
-	{
-		IL_Player.WingMovement -= UnNerfSoarinfInfiniteWings;
-		IL_Player.Update -= UnNerfSoaringInfiniteRocket;
-	}
+        cursor.Index++;
+        if (cursor.Prev.OpCode == OpCodes.Ldc_I4_0 && cursor.Next.OpCode == OpCodes.And) {
+            cursor.Index--;
+            cursor.RemoveRange(2);
+        }
+        else {
+            CalamityFly.Instance.Logger.Warn("unable to edit Player_Update (error:5)");
+        }
+    }
 
-	public override bool Active(UnNerfsConfig config) => config.SoaringInsigniaFlight;
+    private void UnNerfSoarinfInfiniteWings(ILContext il) {
+        var cursor = new ILCursor(il);
+        if (!cursor.TryGotoNext(MoveType.After, i => i.MatchLdfld<Player>("empressBrooch"))) {
+            CalamityFly.Instance.Logger.Warn("unable to edit Player_WingMovement (error:1)");
+            return;
+        }
+
+        cursor.Index++;
+        if (cursor.Prev.OpCode == OpCodes.Ldc_I4_0 && cursor.Next.OpCode == OpCodes.And) {
+            cursor.Index--;
+            cursor.RemoveRange(2);
+        }
+        else {
+            CalamityFly.Instance.Logger.Warn("unable to edit Player_WingMovement (error:2)");
+        }
+    }
+
+    public override void Revert() {
+        IL_Player.WingMovement -= UnNerfSoarinfInfiniteWings;
+        IL_Player.Update -= UnNerfSoaringInfiniteRocket;
+    }
+
+    public override bool Active(UnNerfsConfig config) => config.SoaringInsigniaFlight;
 }

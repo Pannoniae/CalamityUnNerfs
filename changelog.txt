@@ -1,1 +1,1 @@
- - Update scale of Murasama slash
+ - Many tooltips fixed!

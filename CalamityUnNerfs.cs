@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using CalamityFly.Config;
 using CalamityFly.UnNerfs;
 using Terraria.ModLoader;
+using VanillaQoL;
 
 namespace CalamityFly;
 
@@ -9,10 +10,11 @@ public class CalamityFly : Mod {
 
     private static List<BaseUnNerf> unnerfs = new();
 
-    public static CalamityFly Instance;
+    public static CalamityFly Instance = null!;
     internal static UnNerfsConfig config => UnNerfsConfig.Instance;
 
     public CalamityFly() {
+        Instance = this;
         unnerfs.Add(new DefenseDamage());
         unnerfs.Add(new DodgeItems());
         unnerfs.Add(new RodOfDiscord());
@@ -27,7 +29,6 @@ public class CalamityFly : Mod {
     }
 
     public override void Load() {
-        Instance = this;
         foreach (var unnerf in unnerfs) {
             unnerf.Load(this);
         }
@@ -40,6 +41,9 @@ public class CalamityFly : Mod {
     }
 
     public override void Unload() {
-        Instance = null;
+        Instance = null!;
+
+        // unload all the IL edits
+        Utils.completelyWipeClass(typeof(DamageReductionCap));
     }
 }

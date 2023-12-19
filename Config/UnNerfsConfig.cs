@@ -22,10 +22,6 @@ public class UnNerfsConfig : ModConfig {
 
 	[ReloadRequired]
 	[DefaultValue(true)]
-	public bool RespawnTimer;
-
-	[ReloadRequired]
-	[DefaultValue(true)]
 	public bool SoaringInsigniaFlight;
 
 	[ReloadRequired]
@@ -68,10 +64,6 @@ public class UnNerfsConfig : ModConfig {
 	[ReloadRequired]
 	[DefaultValue(true)]
 	public bool WormScarf;
-
-	[ReloadRequired]
-	[DefaultValue(true)]
-	public bool EndurancePotion;
 
 	[ReloadRequired]
 	[DefaultValue(true)]

@@ -1,22 +1,31 @@
-﻿using System;
+﻿using System.Reflection;
+using CalamityFly.Config;
+using CalamityMod.CalPlayer;
+using MonoMod.Cil;
+using Terraria;
 using Terraria.ModLoader;
 
 namespace CalamityFly.UnNerfs;
 
-internal class DamageReductionCap : ModPlayer
-{
-	public override bool IsLoadingEnabled(Mod mod)
-	{
-		return CalamityFly.config.DamageReductionCap;
-	}
+internal class DamageReductionCap : BaseUnNerf {
+    public override bool Active(UnNerfsConfig config) {
+        return config.DamageReductionCap;
+    }
 
-	public override void PostUpdateMiscEffects()
-	{
-		if (Player.endurance > 0)
-		{
-			Player.endurance = -(Player.endurance / (Player.endurance - 1));
+    public override void Apply() {
+        base.Apply();
+        var type = typeof(CalamityPlayer);
+        var method = type.GetMethod("Limits", BindingFlags.Instance | BindingFlags.NonPublic);
+        MonoModHooks.Modify(method, removeDamageScaling);
+    }
 
-			Player.endurance = MathF.Round(Player.endurance, 6);
-		}
-	}
+    private void removeDamageScaling(ILContext il) {
+        var ilCursor = new ILCursor(il);
+        // IL_00c0: stfld        float32 [tModLoader]Terraria.Player::endurance
+        if (ilCursor.TryGotoNext(MoveType.Before, i => i.MatchStfld<Player>("endurance"))) {
+            ilCursor.EmitPop();
+            ilCursor.EmitPop();
+            ilCursor.Remove();
+        }
+    }
 }
