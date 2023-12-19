@@ -1,5 +1,7 @@
 ﻿using System.ComponentModel;
+using Terraria.ModLoader;
 using Terraria.ModLoader.Config;
+using VanillaQoL.Shared;
 
 namespace CalamityFly.Config;
 
@@ -10,6 +12,7 @@ public class UnNerfsConfig : ModConfig {
 
 	[Header("reverts")]
 	[DefaultValue(true)]
+	[ReloadRequired]
 	public bool sellAdditionalItems;
 
 	[DefaultValue(false)]
@@ -92,4 +95,13 @@ public class UnNerfsConfig : ModConfig {
 	[ReloadRequired]
 	[DefaultValue(false)]
 	public bool VanillaZenithCraft;
+
+	public override void OnChanged() {
+		if (sellAdditionalItems) {
+			GlobalFeatures.enableFeature(Mod, "NPCShops");
+		}
+		else {
+			GlobalFeatures.disableFeature(Mod, "NPCShops");
+		}
+	}
 }
