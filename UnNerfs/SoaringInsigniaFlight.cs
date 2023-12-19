@@ -19,12 +19,12 @@ public class SoaringInsigniaFlight : BaseUnNerf
 		var cursor = new ILCursor(il);
 		if (!cursor.TryGotoNext(MoveType.After, i => i.MatchLdfld<Player>("empressBrooch")))
 		{
-			Logger.Warn("unable to edit Player_Update (error:3)");
+			CalamityFly.Instance.Logger.Warn("unable to edit Player_Update (error:3)");
 			return;
 		}
 		if (!cursor.TryGotoNext(MoveType.After, i => i.MatchLdfld<Player>("empressBrooch")))
 		{
-			Logger.Warn("unable to edit Player_Update (error:4)");
+			CalamityFly.Instance.Logger.Warn("unable to edit Player_Update (error:4)");
 			return;
 		}
 		cursor.Index++;
@@ -35,7 +35,7 @@ public class SoaringInsigniaFlight : BaseUnNerf
 		}
 		else
 		{
-			Logger.Warn("unable to edit Player_Update (error:5)");
+			CalamityFly.Instance.Logger.Warn("unable to edit Player_Update (error:5)");
 		}
 	}
 
@@ -44,7 +44,7 @@ public class SoaringInsigniaFlight : BaseUnNerf
 		var cursor = new ILCursor(il);
 		if (!cursor.TryGotoNext(MoveType.After, i => i.MatchLdfld<Player>("empressBrooch")))
 		{
-			Logger.Warn("unable to edit Player_WingMovement (error:1)");
+			CalamityFly.Instance.Logger.Warn("unable to edit Player_WingMovement (error:1)");
 			return;
 		}
 		cursor.Index++;
@@ -55,7 +55,7 @@ public class SoaringInsigniaFlight : BaseUnNerf
 		}
 		else
 		{
-			Logger.Warn("unable to edit Player_WingMovement (error:2)");
+			CalamityFly.Instance.Logger.Warn("unable to edit Player_WingMovement (error:2)");
 		}
 	}
 

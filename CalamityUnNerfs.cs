@@ -1,7 +1,6 @@
 using System.Collections.Generic;
 using CalamityFly.Config;
 using CalamityFly.UnNerfs;
-using MonoMod.Cil;
 using Terraria.ModLoader;
 
 namespace CalamityFly;
@@ -11,27 +10,36 @@ public class CalamityFly : Mod {
     private static List<BaseUnNerf> unnerfs = new();
 
     public static CalamityFly Instance;
-    internal static UnNerfsConfig config = ModContent.GetInstance<UnNerfsConfig>();
+    internal static UnNerfsConfig config => UnNerfsConfig.Instance;
+
+    public CalamityFly() {
+        unnerfs.Add(new DefenseDamage());
+        unnerfs.Add(new DodgeItems());
+        unnerfs.Add(new RodOfDiscord());
+        unnerfs.Add(new SoaringInsigniaFlight());
+        unnerfs.Add(new SoaringInsigniaMovement());
+        unnerfs.Add(new SummonDamage());
+
+        foreach (var unnerf in unnerfs) {
+            unnerf.VeryEarlyApply();
+        }
+
+    }
 
     public override void Load() {
         Instance = this;
+        foreach (var unnerf in unnerfs) {
+            unnerf.Load(this);
+        }
     }
 
     public override void PostSetupContent() {
         foreach (var unnerf in unnerfs) {
-            unnerf.Apply();
+            unnerf.OnLateLoad(this);
         }
     }
 
     public override void Unload() {
         Instance = null;
-    }
-
-    /// <summary>
-    /// Register an un-nerf for PostSetupContent.
-    /// </summary>
-    /// <param name="baseUnNerf"></param>
-    public void registerForPostSetup(BaseUnNerf unnerf) {
-        unnerfs.Add(unnerf);
     }
 }

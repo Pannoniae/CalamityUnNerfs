@@ -23,14 +23,14 @@ internal class MeteorArmorSetUnnerf : BaseUnNerf
 			i => i.MatchLdfld<CalamityPlayer>("meteorSet")
 			))
 		{
-			Logger.Warn("unable to edit IlCalPlayer_ForceVariousEffects (error:1)");
+			CalamityFly.Instance.Logger.Warn("unable to edit IlCalPlayer_ForceVariousEffects (error:1)");
 			return;
 		}
 		if (!cursor.TryGotoNext(MoveType.Before,
 			i => i.Match(OpCodes.Ldc_I4_0)
 			))
 		{
-			Logger.Warn("unable to edit IlCalPlayer_ForceVariousEffects (error:2)");
+			CalamityFly.Instance.Logger.Warn("unable to edit IlCalPlayer_ForceVariousEffects (error:2)");
 			return;
 		}
 		cursor.Remove();

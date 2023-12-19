@@ -49,7 +49,7 @@ internal class SummonDamage : BaseUnNerf
 			    i => i.MatchLdsfld(typeof(BalancingConstants), "SummonerCrossClassNerf")
 		    ))
 		{
-			Logger.Warn("unable to edit Player_ModifyHitNPCWithProj (error:17)");
+			CalamityFly.Instance.Logger.Warn("unable to edit Player_ModifyHitNPCWithProj (error:17)");
 			return;
 		}
 		//cursor.Prev.Operand = 1d;

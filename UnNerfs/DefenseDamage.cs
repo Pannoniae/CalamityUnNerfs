@@ -1,7 +1,6 @@
 ﻿using CalamityFly.Config;
 using CalamityFly.On;
 using CalamityMod.CalPlayer;
-using Terraria;
 
 namespace CalamityFly.UnNerfs;
 

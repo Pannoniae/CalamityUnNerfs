@@ -1,27 +1,35 @@
-﻿using CalamityFly.Config;
+﻿using System;
+using CalamityFly.Config;
 using log4net;
 using Terraria.ModLoader;
 
 namespace CalamityFly.UnNerfs;
 
-public abstract class BaseUnNerf : ILoadable {
-    protected ILog Logger;
+public abstract class BaseUnNerf {
 
     // We load earlier than Calamity.
     public void Load(Mod mod) {
-        Logger = mod.Logger;
         if (Active(CalamityFly.config)) {
             EarlyApply();
-            ((CalamityFly)mod).registerForPostSetup(this);
+        }
+    }
+
+    public void OnLateLoad(Mod mod) {
+        if (Active(CalamityFly.config)) {
+            Apply();
         }
     }
 
     public virtual void Apply() {
-        Logger.Info($"Applying {GetType().Name} unnerf");
+        Console.WriteLine($"Applying {GetType().Name} unnerf");
     }
 
     public virtual void EarlyApply() {
-        Logger.Info($"Applying {GetType().Name} unnerf (early)");
+        Console.WriteLine($"Applying {GetType().Name} unnerf (early)");
+    }
+
+    public virtual void VeryEarlyApply() {
+        Console.WriteLine($"Applying {GetType().Name} unnerf (very early)");
     }
 
     public abstract bool Active(UnNerfsConfig config);
@@ -34,7 +42,5 @@ public abstract class BaseUnNerf : ILoadable {
         if (Active(CalamityFly.config)) {
             Revert();
         }
-
-        Logger = null;
     }
 }
