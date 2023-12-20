@@ -11,6 +11,7 @@ Main features:
 - soaring insignia infinity fly again
 - no summon damage reduction
 - no damage reduction cap
+- remove weapon charging
 - and more!
 
 My discord server if you want to talk, I'm lonely: https://discord.gg/w4JvYdkdDP

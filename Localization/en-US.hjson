@@ -96,6 +96,11 @@ Mods: {
 					Label: Uncap Respawn Timer
 					Tooltip: Calamity caps the respawn timer to 15 seconds by default. Set to true to disable that.
 				}
+
+				removeCharge: {
+					Label: "[i:CalamityMod/PulseRifle] Remove Weapon Charging"
+					Tooltip: If enabled, removes the requirement to charge weapons at a Charging Station.
+				}
 			}
 		}
 	}

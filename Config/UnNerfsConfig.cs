@@ -47,6 +47,10 @@ public class UnNerfsConfig : ModConfig {
 	[DefaultValue(true)]
 	public bool YoyoBag;
 
+	[ReloadRequired]
+	[DefaultValue(false)]
+	public bool removeCharge;
+
 	//Damage/Defense/Endurance Un-Nerfs
 	[Header("defenseDamage")]
 	[ReloadRequired]

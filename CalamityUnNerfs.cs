@@ -25,7 +25,6 @@ public class CalamityFly : Mod {
         foreach (var unnerf in unnerfs) {
             unnerf.VeryEarlyApply();
         }
-
     }
 
     public override void Load() {
