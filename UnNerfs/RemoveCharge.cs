@@ -29,7 +29,7 @@ public class RemoveCharge : GlobalItem {
         var type5 = typeof(Phaseslayer);
         var method6 = type5.GetMethod("CanUseItem");
         var type6 = typeof(HydraulicVoltCrasher);
-        var method7 = type5.GetMethod("CanUseItem");
+        var method7 = type6.GetMethod("CanUseItem");
         MonoModHooks.Modify(method, removeChargePatch);
         MonoModHooks.Modify(method2, removeChargePatch);
         MonoModHooks.Modify(method3, removeChargePatch);
