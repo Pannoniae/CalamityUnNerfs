@@ -1,6 +1,6 @@
 displayName = UnNerfs Calamity
 author = Kokopai, Pannoniae
-version = 0.8.14
+version = 0.8.15
 modReferences = CalamityMod
 homepage = https://discord.gg/7wY4pFwXhP
 modReferences = VanillaQoL

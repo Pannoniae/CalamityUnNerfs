@@ -1,1 +1,1 @@
- - Many tooltips fixed!
+ - Fix some weapons which didn't work without charge.
