@@ -16,6 +16,7 @@ public class CalamityFly : Mod {
     public CalamityFly() {
         Instance = this;
         unnerfs.Add(new DefenseDamage());
+        unnerfs.Add(new DamageReductionCap());
         unnerfs.Add(new DodgeItems());
         unnerfs.Add(new RodOfDiscord());
         unnerfs.Add(new SoaringInsigniaFlight());
