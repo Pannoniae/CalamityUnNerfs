@@ -1,1 +1,1 @@
- - Fix Calamity dependency being swallowed
+ - Remove debug code

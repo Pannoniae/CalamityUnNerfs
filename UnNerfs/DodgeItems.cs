@@ -65,8 +65,6 @@ internal class DodgeItems : BaseUnNerf {
         }
 
         ilCursor.RemoveRange(2);
-
-        MonoModHooks.DumpIL(VanillaQoL.VanillaQoL.instance, il);
     }
 
     public void removeCalamityDodge(ILContext il) {
@@ -75,7 +73,6 @@ internal class DodgeItems : BaseUnNerf {
         if (ilCursor.TryGotoNext(MoveType.Before, i => i.MatchBrtrue(out var label))) {
             ilCursor.EmitPop();
             ilCursor.Emit(OpCodes.Ldc_I4_1);
-            MonoModHooks.DumpIL(VanillaQoL.VanillaQoL.instance, il);
         }
         else {
             CalamityFly.Instance.Logger.Warn("Failed to match the first jump in CalamityPlayer.ConsumableDodge!");
