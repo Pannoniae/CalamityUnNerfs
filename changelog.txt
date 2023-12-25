@@ -1,1 +1,1 @@
- - Fix DR unnerf
+ - Fix Calamity dependency being swallowed
