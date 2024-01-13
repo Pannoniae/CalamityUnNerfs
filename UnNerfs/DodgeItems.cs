@@ -11,8 +11,8 @@ namespace CalamityFly.UnNerfs;
 internal class DodgeItems : BaseUnNerf {
     public override bool Active(UnNerfsConfig config) => config.DodgeItems;
 
-    public override void EarlyApply() {
-        base.EarlyApply();
+    public override void Apply() {
+        base.Apply();
         IL_Player.Hurt_PlayerDeathReason_int_int_refHurtInfo_bool_bool_int_bool_float_float_float +=
             revertDodgeItemsUselessness;
         // I'm sorry

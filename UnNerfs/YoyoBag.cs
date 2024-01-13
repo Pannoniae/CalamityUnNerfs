@@ -13,6 +13,7 @@ internal class YoyoBag : BaseUnNerf
 	public override bool Active(UnNerfsConfig config) => config.YoyoBag;
 
 	public override void Apply() {
+		base.Apply();
 		var type = typeof(CalamityGlobalProjectile);
 		var method = type.GetMethod("PreAI");
 		MonoModHooks.Modify(method, unnerfYoyos);

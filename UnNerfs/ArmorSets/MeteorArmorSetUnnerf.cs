@@ -10,9 +10,9 @@ internal class MeteorArmorSetUnnerf : BaseUnNerf
 {
 	public override bool Active(UnNerfsConfig config) => config.MeteorArmorSet;
 
-	public override void Apply()
+	public override void LateApply()
 	{
-		base.Apply();
+		base.LateApply();
 		IlCalPlayer.ForceVariousEffects += IlCalPlayer_ForceVariousEffects;
 	}
 

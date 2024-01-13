@@ -1,6 +1,5 @@
 ﻿using System;
 using CalamityFly.Config;
-using log4net;
 using Terraria.ModLoader;
 
 namespace CalamityFly.UnNerfs;
@@ -10,21 +9,21 @@ public abstract class BaseUnNerf {
     // We load earlier than Calamity.
     public void Load(Mod mod) {
         if (Active(CalamityFly.config)) {
-            EarlyApply();
+            Apply();
         }
     }
 
     public void OnLateLoad(Mod mod) {
         if (Active(CalamityFly.config)) {
-            Apply();
+            LateApply();
         }
     }
 
-    public virtual void Apply() {
+    public virtual void LateApply() {
         Console.WriteLine($"Applying {GetType().Name} unnerf");
     }
 
-    public virtual void EarlyApply() {
+    public virtual void Apply() {
         Console.WriteLine($"Applying {GetType().Name} unnerf (early)");
     }
 

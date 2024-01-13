@@ -51,6 +51,10 @@ public class UnNerfsConfig : ModConfig {
 	[DefaultValue(false)]
 	public bool removeCharge;
 
+	[ReloadRequired]
+	[DefaultValue(true)]
+	public bool mountSpeed;
+
 	//Damage/Defense/Endurance Un-Nerfs
 	[Header("defenseDamage")]
 	[ReloadRequired]

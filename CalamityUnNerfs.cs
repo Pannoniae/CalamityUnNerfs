@@ -22,6 +22,7 @@ public class CalamityFly : Mod {
         unnerfs.Add(new SoaringInsigniaFlight());
         unnerfs.Add(new SoaringInsigniaMovement());
         unnerfs.Add(new SummonDamage());
+        unnerfs.Add(new MountSpeed());
 
         foreach (var unnerf in unnerfs) {
             unnerf.VeryEarlyApply();

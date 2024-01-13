@@ -101,6 +101,11 @@ Mods: {
 					Label: "[i:CalamityMod/PulseRifle] Remove Weapon Charging"
 					Tooltip: If enabled, removes the requirement to charge weapons at a Charging Station.
 				}
+
+				mountSpeed: {
+					Label: "[i:SlimySaddle] Mount Speed Unnerf"
+					Tooltip: If enabled, the Slimy Saddle and the Gelatinous Pillion will be reverted to their original speed.
+				}
 			}
 		}
 	}
