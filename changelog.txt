@@ -1,1 +1,1 @@
- - Add mount unnerf
+- Remove VanillaQoL dependency because people didn't like it

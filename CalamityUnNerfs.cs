@@ -2,7 +2,6 @@ using System.Collections.Generic;
 using CalamityFly.Config;
 using CalamityFly.UnNerfs;
 using Terraria.ModLoader;
-using VanillaQoL;
 
 namespace CalamityFly;
 
@@ -43,8 +42,5 @@ public class CalamityFly : Mod {
 
     public override void Unload() {
         Instance = null!;
-
-        // unload all the IL edits
-        Utils.completelyWipeClass(typeof(DamageReductionCap));
     }
 }
